@@ -62,7 +62,6 @@ It will be recommended to use the demo inputs so that you can start up the progr
 - **API**: REST API with JavaScript fetch()
 
 ## Project Structure
-.
 ```
 project/
 ├── frontend/
