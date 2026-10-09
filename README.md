@@ -135,14 +135,12 @@ The first time you visit the application, click "Get Started" to open the authen
 
 **Demo Credentials (fictional demo accounts):**
 
-|-----------|------------------------------------|--------------|--------------------------------------------------|
 | Role      | Email                              | Password     | Programme / Organisation                         |
 |-----------|------------------------------------|--------------|--------------------------------------------------|
 | Student   | arjun.sharma@student.demoayush.edu | student123   | Ayurveda - BAMS (Clinical Research demo persona) |
 | Faculty   | vikram.singh@demoayush.edu         | faculty123   | Ayurveda - Kayachikitsa                          |
 | Institute | registrar@demoayush.edu            | institute123 | Demo Institute of AYUSH Sciences                 |
 | Industry  | hr@demoayushpharma.example.com     | industry123  | Demo AYUSH Pharmaceutical Pvt. Ltd.              |
-|-----------|------------------------------------|--------------|--------------------------------------------------|
 
 Sign up with your own details, or run `python -m backend.seed` to load the full AYUSH demo dataset (50 students across the six AYUSH systems, 8 faculty, 8 demo organisations and ~53 demo opportunities).
 
