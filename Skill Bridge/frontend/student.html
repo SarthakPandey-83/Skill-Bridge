@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - Skill Bridge</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header header-dark">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Skill Bridge</span>
+            </div>
+            <nav class="nav">
+                <a href="#" class="nav-link active" data-section="dashboard">Dashboard</a>
+                <a href="#" class="nav-link" data-section="profile">Profile</a>
+                <a href="#" class="nav-link" data-section="skills">Skills</a>
+                <a href="#" class="nav-link" data-section="opportunities">Opportunities</a>
+                <a href="#" class="nav-link" data-section="gap-analysis">Gap Analysis</a>
+            </nav>
+            <div class="user-menu">
+                <span class="user-name" id="studentUserName">Loading...</span>
+                <button class="btn btn-icon" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            
+            <!-- Dashboard Section -->
+            <section id="section-dashboard" class="section active">
+                <div class="page-header">
+                    <h1>Welcome back, <span id="studentWelcomeName">Student</span></h1>
+                    <p class="text-muted">Your student dashboard</p>
+                </div>
+                
+                <!-- Quick Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon stat-icon-primary">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="statTotalSkills">0</span>
+                            <span class="stat-label">Total Skills</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon stat-icon-success">
+                            <i class="fas fa-arrow-up"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="statMatchedSkills">0</span>
+                            <span class="stat-label">Matched Skills</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon stat-icon-warning">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="statGapSkills">0</span>
+                            <span class="stat-label">Skills to Improve</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon stat-icon-info">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="statOpportunities">0</span>
+                            <span class="stat-label">Available Opportunities</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recommended Skills -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-star"></i> Recommended Skills to Learn</h3>
+                        <span class="badge badge-primary">Top Priority</span>
+                    </div>
+                    <div class="card-body">
+                        <div id="recommendedSkillsList" class="skill-tags">
+                            <span class="text-muted">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recent Opportunities -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-briefcase"></i> Recent Opportunities</h3>
+                        <a href="#" class="link" onclick="switchSection('opportunities')">View All</a>
+                    </div>
+                    <div class="card-body">
+                        <div id="recentOpportunities" class="opportunities-list">
+                            <span class="text-muted">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Profile Section -->
+            <section id="section-profile" class="section">
+                <div class="page-header">
+                    <h1>My Profile</h1>
+                    <p class="text-muted">Manage your personal and academic information</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Personal Information</h3>
+                        <button class="btn btn-sm btn-outline" onclick="enableProfileEdit()">
+                            <i class="fas fa-edit"></i> Edit
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div class="profile-grid">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" id="editName" class="form-control" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" id="editEmail" class="form-control" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Institute/College</label>
+                                <input type="text" id="editInstitute" class="form-control" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>AYUSH System</label>
+                                <input type="text" id="editBranch" class="form-control" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Programme/Degree</label>
+                                <input type="text" id="editCourse" class="form-control" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Batch/Graduation Year</label>
+                                <input type="number" id="editBatch" class="form-control" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Semester</label>
+                                <input type="number" id="editSemester" class="form-control" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Career Goal</label>
+                                <textarea id="editCareerGoal" class="form-control" rows="2" disabled></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Preferred Industry</label>
+                                <input type="text" id="editPreferredIndustry" class="form-control" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Additional Information</label>
+                                <textarea id="editOtherInfo" class="form-control" rows="3" disabled></textarea>
+                            </div>
+                        </div>
+                        <div class="profile-actions">
+                            <button class="btn btn-primary" id="saveProfileBtn" style="display: none;" onclick="saveProfile()">
+                                <i class="fas fa-save"></i> Save Changes
+                            </button>
+                            <button class="btn btn-secondary" id="cancelEditBtn" style="display: none;" onclick="cancelProfileEdit()">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Skills Section -->
+            <section id="section-skills" class="section">
+                <div class="page-header">
+                    <h1>My Skills</h1>
+                    <p class="text-muted">View and manage your skill profile</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Skill Categories</h3>
+                    </div>
+                    <div class="card-body">
+                        <div id="skillsByCategory" class="skills-categories">
+                            <span class="text-muted">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3>All Skills</h3>
+                        <button class="btn btn-sm btn-outline" onclick="enableSkillEdit()">
+                            <i class="fas fa-edit"></i> Edit Skills
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div id="allSkillsList" class="skills-list">
+                            <span class="text-muted">Loading...</span>
+                        </div>
+                        
+                        <div id="skillEditForm" style="display: none;">
+                            <div class="skill-editor">
+                                <div class="form-group">
+                                    <label>Technical Skills (comma separated)</label>
+                                    <input type="text" id="editTechnicalSkills" class="form-control" placeholder="Python, Java, JavaScript, ...">
+                                </div>
+                                <div class="form-group">
+                                    <label>Other Skills (comma separated)</label>
+                                    <input type="text" id="editSkills" class="form-control" placeholder="Communication, Leadership, ...">
+                                </div>
+                                <button class="btn btn-primary" onclick="saveSkills()">
+                                    <i class="fas fa-save"></i> Save Skills
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Opportunities Section -->
+            <section id="section-opportunities" class="section">
+                <div class="page-header">
+                    <h1>Opportunities</h1>
+                    <p class="text-muted">Find internships, jobs, events and skill-development programs</p>
+                </div>
+                
+                <!-- Filters -->
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="filter-bar">
+                            <select id="opportunityFilterType" class="form-control" onchange="loadOpportunities()">
+                                <option value="">All Types</option>
+                                <option value="internship">Internship</option>
+                                <option value="job">Job</option>
+                                <option value="event">Event</option>
+                                <option value="skill-program">Skill Program</option>
+                            </select>
+                            <input type="text" id="opportunityFilterSkills" class="form-control" 
+                                   placeholder="Filter by skills (comma separated)" 
+                                   onkeyup="debounceLoadOpportunities()">
+                            <button class="btn btn-secondary" onclick="loadOpportunities()">
+                                <i class="fas fa-filter"></i> Filter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Opportunities Grid -->
+                <div id="opportunitiesList" class="opportunities-grid">
+                    <div class="text-center py-4">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Loading opportunities...</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Gap Analysis Section -->
+            <section id="section-gap-analysis" class="section">
+                <div class="page-header">
+                    <h1>Skill Gap Analysis</h1>
+                    <p class="text-muted">Compare your skills with industry requirements</p>
+                </div>
+                
+                <!-- Gap Summary -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Gap Summary</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="gap-summary-grid">
+                            <div class="gap-stat">
+                                <div class="gap-stat-circle gap-matched" id="gapMatchedCircle">
+                                    <span class="gap-stat-value" id="gapMatchedCount">0</span>
+                                    <span class="gap-stat-label">Matched</span>
+                                </div>
+                            </div>
+                            <div class="gap-stat">
+                                <div class="gap-stat-circle gap-weak" id="gapWeakCircle">
+                                    <span class="gap-stat-value" id="gapWeakCount">0</span>
+                                    <span class="gap-stat-label">Needs Improvement</span>
+                                </div>
+                            </div>
+                            <div class="gap-stat">
+                                <div class="gap-stat-circle gap-missing" id="gapMissingCircle">
+                                    <span class="gap-stat-value" id="gapMissingCount">0</span>
+                                    <span class="gap-stat-label">Missing</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Gap Details -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Detailed Gap Analysis</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="gap-table-wrapper">
+                            <table class="table table-striped" id="skillGapTable">
+                                <thead>
+                                    <tr>
+                                        <th>Skill</th>
+                                        <th>Your Level</th>
+                                        <th>Industry Demand</th>
+                                        <th>Gap</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="skillGapTableBody">
+                                    <tr>
+                                        <td colspan="5" class="text-center text-muted">Loading...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Learning Recommendations -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-lightbulb"></i> Learning Recommendations</h3>
+                    </div>
+                    <div class="card-body">
+                        <div id="learningRecommendations">
+                            <span class="text-muted">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/student.js"></script>
+</body>
+</html>

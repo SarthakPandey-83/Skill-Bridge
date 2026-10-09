@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Institute Dashboard - Skill Bridge</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header header-dark">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Skill Bridge</span>
+            </div>
+            <nav class="nav">
+                <a href="#" class="nav-link active" data-section="dashboard">Analytics</a>
+                <a href="#" class="nav-link" data-section="students">Students</a>
+                <a href="#" class="nav-link" data-section="skills">Skills</a>
+                <a href="#" class="nav-link" data-section="career">Careers</a>
+            </nav>
+            <div class="user-menu">
+                <span class="user-name" id="instituteUserName">Loading...</span>
+                <button class="btn btn-icon" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            
+            <!-- Dashboard/Analytics Section -->
+            <section id="section-dashboard" class="section active">
+                <div class="page-header">
+                    <h1>Institute Analytics</h1>
+                    <p class="text-muted" id="instituteNameDisplay">Loading...</p>
+                </div>
+                
+                <!-- Key Metrics -->
+                <div class="stats-grid">
+                    <div class="stat-card stat-card-lg">
+                        <div class="stat-icon stat-icon-primary">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="totalStudents">0</span>
+                            <span class="stat-label">Total Students</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon stat-icon-success">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="totalSkillsCount">0</span>
+                            <span class="stat-label">Skills Recorded</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon stat-icon-warning">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="internshipCount">0</span>
+                            <span class="stat-label">Internships</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon stat-icon-info">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="eventCount">0</span>
+                            <span class="stat-label">Events/Programs</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Charts Row -->
+                <div class="charts-row">
+                    <div class="card chart-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-code-branch"></i> Students by AYUSH System</h3>
+                        </div>
+                        <div class="card-body chart-container">
+                            <img id="branchChart" src="" alt="Students by AYUSH System Chart" style="display: none;">
+                            <div id="branchChartLoading" class="text-center">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                <p>Loading chart...</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card chart-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-calendar-alt"></i> Students by Batch</h3>
+                        </div>
+                        <div class="card-body chart-container">
+                            <img id="batchChart" src="" alt="Students by Batch Chart" style="display: none;">
+                            <div id="batchChartLoading" class="text-center">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                <p>Loading chart...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Second Row of Charts -->
+                <div class="charts-row">
+                    <div class="card chart-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-chart-pie"></i> Career Interests</h3>
+                        </div>
+                        <div class="card-body chart-container">
+                            <img id="careerChart" src="" alt="Career Interests Chart" style="display: none;">
+                            <div id="careerChartLoading" class="text-center">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                <p>Loading chart...</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card chart-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-chart-donut"></i> Student Participation</h3>
+                        </div>
+                        <div class="card-body chart-container">
+                            <img id="participationChart" src="" alt="Participation Chart" style="display: none;">
+                            <div id="participationChartLoading" class="text-center">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                <p>Loading chart...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Students Section -->
+            <section id="section-students" class="section">
+                <div class="page-header">
+                    <h1>Student Distribution</h1>
+                    <p class="text-muted">View aggregated student data across Category and batches</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-code-branch"></i> Students by Category</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover" id="studentsByBranchTable">
+                                <thead>
+                                    <tr>
+                                        <th>Category</th>
+                                        <th>Student</th>
+                                        <th>Percentage</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="branchTableBody">
+                                    <tr>
+                                        <td colspan="3" class="text-center text-muted">Loading...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-calendar"></i> Students by Batch</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover" id="studentsByBatchTable">
+                                <thead>
+                                    <tr>
+                                        <th>Batch Year</th>
+                                        <th>Student</th>
+                                        <th>Percentage</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="batchTableBody">
+                                    <tr>
+                                        <td colspan="3" class="text-center text-muted">Loading...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Skills Section -->
+            <section id="section-skills" class="section">
+                <div class="page-header">
+                    <h1>Skill Analysis</h1>
+                    <p class="text-muted">Understand skill distribution and gaps across your institute</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-chart-bar"></i> Top Skills</h3>
+                    </div>
+                    <div class="card-body chart-container">
+                        <img id="skillsChart" src="" alt="Top Skills Chart" style="display: none;">
+                        <div id="skillsChartLoading" class="text-center">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Loading chart...</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-list"></i> Most Common Skills</h3>
+                    </div>
+                    <div class="card-body">
+                        <div id="commonSkillsList" class="skills-list">
+                            <span class="text-muted">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Skill Gaps (High Demand - Low Supply)</h3>
+                    </div>
+                    <div class="card-body">
+                        <div id="skillGapsList" class="insights-list">
+                            <span class="text-muted">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Career Section -->
+            <section id="section-career" class="section">
+                <div class="page-header">
+                    <h1>Career & Outcomes</h1>
+                    <p class="text-muted">Track student career interests and participation</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-bullseye"></i> Career Interests Distribution</h3>
+                    </div>
+                    <div class="card-body">
+                        <div id="careerInterestsList" class="insights-list">
+                            <span class="text-muted">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-chart-pie"></i> Outcome Summary</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="outcome-grid">
+                            <div class="outcome-card">
+                                <i class="fas fa-briefcase outcome-icon-internship"></i>
+                                <div class="outcome-info">
+                                    <span class="outcome-value" id="outcomeInternships">0</span>
+                                    <span class="outcome-label">Internships</span>
+                                </div>
+                            </div>
+                            <div class="outcome-card">
+                                <i class="fas fa-user-tie outcome-icon-job"></i>
+                                <div class="outcome-info">
+                                    <span class="outcome-value" id="outcomeJobs">0</span>
+                                    <span class="outcome-label">Jobs</span>
+                                </div>
+                            </div>
+                            <div class="outcome-card">
+                                <i class="fas fa-calendar-alt outcome-icon-event"></i>
+                                <div class="outcome-info">
+                                    <span class="outcome-value" id="outcomeEvents">0</span>
+                                    <span class="outcome-label">Events Attended</span>
+                                </div>
+                            </div>
+                            <div class="outcome-card">
+                                <i class="fas fa-certificate outcome-icon-skill"></i>
+                                <div class="outcome-info">
+                                    <span class="outcome-value" id="outcomeSkillPrograms">0</span>
+                                    <span class="outcome-label">Skill Programs</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/institute.js"></script>
+</body>
+</html>

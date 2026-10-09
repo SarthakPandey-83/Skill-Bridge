@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Bridge - Skill Development & Industry-Academia Bridge</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Skill Bridge</span>
+            </div>
+            <nav class="nav">
+                <a href="#features">Features</a>
+                <a href="#roles">Roles</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Bridging Academia & Industry</h1>
+                <p class="subtitle">A comprehensive platform for skill development, gap analysis, and industry-academia collaboration</p>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <i class="fas fa-user-graduate"></i>
+                        <div class="stat-content">
+                            <span class="stat-number">10,000+</span>
+                            <span class="stat-label">Students</span>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <div class="stat-content">
+                            <span class="stat-number">2,000+</span>
+                            <span class="stat-label">Faculty</span>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-building"></i>
+                        <div class="stat-content">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Institutes</span>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-industry"></i>
+                        <div class="stat-content">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Industries</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-actions">
+                    <button class="btn btn-primary btn-lg" onclick="showAuthModal()"">
+                        <i class="fas fa-sign-in-alt"></i> Get Started
+                    </button>
+                    <button class="btn btn-secondary btn-lg" onclick="document.getElementById('roles').scrollIntoView({behavior: 'smooth'})">
+                        Learn More
+                    </button>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="hero-card hero-card-1">
+                    <i class="fas fa-users"></i>
+                    <br>
+                    <span>Students</span>
+                </div>
+                <div class="hero-card hero-card-2">
+                    <i class="fas fa-chart-line"></i>
+                    <br>
+                    <span>Analytics</span>
+                </div>
+                <div class="hero-card hero-card-3">
+                    <i class="fas fa-handshake"></i>
+                    <br>
+                    <span>Industries</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Platform Features</h2>
+                <p>Comprehensive tools for skill development and industry collaboration</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Student Profiles</h3>
+                    <p>Complete academic and skill profiles with detailed information about education, skills, projects, and career goals.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>Skill Gap Analysis</h3>
+                    <p>AI-powered skill gap identification comparing student skills with industry requirements and recommendations.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chalkboard"></i>
+                    </div>
+                    <h3>Faculty Insights</h3>
+                    <p>Department-wise analytics, student skill trends, and curriculum development recommendations.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Institute Analytics</h3>
+                    <p>Aggregated data visualization for institutes - student distribution, skill analysis, and career trends.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Industry Opportunities</h3>
+                    <p>Post internships, jobs, events, and skill-development programs with required skills and eligibility.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Demand Analysis</h3>
+                    <p>Industry skill demand vs student supply analysis with visual rankings and gap identification.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roles Section -->
+    <section id="roles" class="roles">
+        <div class="container">
+            <div class="section-header">
+                <h2>Choose Your Role</h2>
+                <p>Select your role to access role-specific features and dashboard</p>
+            </div>
+            
+            <div class="roles-grid">
+                <div class="role-card" onclick="selectRole('student')">
+                    <div class="role-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Student</h3>
+                    <p>Build your profile, track skills, find opportunities, and bridge skill gaps</p>
+                    <ul class="role-features">
+                        <li><i class="fas fa-check"></i> Detailed profile creation</li>
+                        <li><i class="fas fa-check"></i> Skill gap analysis</li>
+                        <li><i class="fas fa-check"></i> Opportunity discovery</li>
+                        <li><i class="fas fa-check"></i> Learning recommendations</li>
+                    </ul>
+                </div>
+                
+                <div class="role-card" onclick="selectRole('faculty')">
+                    <div class="role-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Faculty</h3>
+                    <p>Manage your expertise, track student progress, and guide curriculum development</p>
+                    <ul class="role-features">
+                        <li><i class="fas fa-check"></i> Professional profile</li>
+                        <li><i class="fas fa-check"></i> Student insights</li>
+                        <li><i class="fas fa-check"></i> Skill trend analysis</li>
+                        <li><i class="fas fa-check"></i> Curriculum recommendations</li>
+                    </ul>
+                </div>
+                
+                <div class="role-card" onclick="selectRole('institute')">
+                    <div class="role-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>Institute</h3>
+                    <p>View aggregated analytics, track student outcomes, and plan interventions</p>
+                    <ul class="role-features">
+                        <li><i class="fas fa-check"></i> Analytics dashboard</li>
+                        <li><i class="fas fa-check"></i> System/programme reports</li>
+                        <li><i class="fas fa-check"></i> Skill distribution</li>
+                        <li><i class="fas fa-check"></i> Career interest trends</li>
+                    </ul>
+                </div>
+                
+                <div class="role-card" onclick="selectRole('industry')">
+                    <div class="role-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3>Industry</h3>
+                    <p>Post opportunities, find talent, and understand skill trends</p>
+                    <ul class="role-features">
+                        <li><i class="fas fa-check"></i> Company profile</li>
+                        <li><i class="fas fa-check"></i> Post opportunities</li>
+                        <li><i class="fas fa-check"></i> Talent analytics</li>
+                        <li><i class="fas fa-check"></i> Skill demand insights</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login/Signup Modal (hidden by default) -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="authModalTitle">Get Started</h2>
+                <button class="modal-close" onclick="closeAuthModal()">&times;</button>
+            </div>
+            
+            <!-- Auth Tabs -->
+            <div class="auth-tabs">
+                <button class="auth-tab active" onclick="switchAuthTab('login')">Login</button>
+                <button class="auth-tab" onclick="switchAuthTab('signup')">Sign Up</button>
+            </div>
+            
+            <!-- Login Form -->
+            <form id="loginForm" class="auth-form">
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail" required placeholder="your@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required placeholder="Enter your password">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+            </form>
+            
+            <!-- Signup Form -->
+            <form id="signupForm" class="auth-form" style="display: none;">
+                <div class="form-group">
+                    <label for="signupName">Full Name</label>
+                    <input type="text" id="signupName" required placeholder="Your full name">
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email Address</label>
+                    <input type="email" id="signupEmail" required placeholder="your@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" required minlength="6" placeholder="Minimum 6 characters">
+                </div>
+                
+                <!-- Role Selection -->
+                <div class="form-group">
+                    <label>I am a...</label>
+                    <div class="role-selection">
+                        <label class="role-option">
+                            <input type="radio" name="signupRole" value="student" checked onchange="toggleInstituteField()">
+                            <span class="role-option-content">
+                                <i class="fas fa-user-graduate"></i>
+                                <strong>Student</strong>
+                            </span>
+                        </label>
+                        <label class="role-option">
+                            <input type="radio" name="signupRole" value="faculty" onchange="toggleInstituteField()">
+                            <span class="role-option-content">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                                <strong>Faculty</strong>
+                            </span>
+                        </label>
+                        <label class="role-option">
+                            <input type="radio" name="signupRole" value="institute" onchange="toggleInstituteField()">
+                            <span class="role-option-content">
+                                <i class="fas fa-university"></i>
+                                <strong>Institute</strong>
+                            </span>
+                        </label>
+                        <label class="role-option">
+                            <input type="radio" name="signupRole" value="industry" onchange="toggleInstituteField()">
+                            <span class="role-option-content">
+                                <i class="fas fa-industry"></i>
+                                <strong>Industry</strong>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Institute Name (conditional) -->
+                <div class="form-group" id="instituteNameGroup" style="display: none;">
+                    <label for="signupInstitute">Institute/College Name</label>
+                    <input type="text" id="signupInstitute" placeholder="Your institute name">
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block">
+                    <i class="fas fa-user-plus"></i> Create Account
+                </button>
+                
+                <p class="auth-switch">Already have an account? <a href="#" onclick="switchAuthTab('login')">Login</a></p>
+            </form>
+            
+            <!-- Role Selection for Login (if no account) -->
+            <div id="loginRoleSelection" style="display: none;" class="role-selection">
+                <p class="text-center mb-3">Select your role to view role-specific login or use common credentials below</p>
+                <button class="btn btn-outline btn-block" onclick="useSampleStudent()">
+                    <i class="fas fa-user-graduate"></i> Student Demo
+                </button>
+                <button class="btn btn-outline btn-block" onclick="useSampleFaculty()">
+                    <i class="fas fa-chalkboard-teacher"></i> Faculty Demo
+                </button>
+                <button class="btn btn-outline btn-block" onclick="useSampleInstitute()">
+                    <i class="fas fa-university"></i> Institute Demo
+                </button>
+                <button class="btn btn-outline btn-block" onclick="useSampleIndustry()">
+                    <i class="fas fa-industry"></i> Industry Demo
+                </button>
+                <p class="text-muted text-center mt-3" style="font-size: 0.8rem;">
+                    AYUSH prototype demonstration. All students, AYUSH organisations and opportunities
+                    shown are fictional demo data used only for this prototype.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+        <div class="loading-spinner"></div>
+        <p>Loading...</p>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
