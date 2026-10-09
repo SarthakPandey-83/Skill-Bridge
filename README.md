@@ -234,9 +234,16 @@ DATABASE_URL=mysql+pymysql://<Username>:<Password>@localhost:<Port>/<Database>
 
 The backend creates tables automatically on startup. If you change credentials, update `.env` and restart.
 
-# Static Files Not Loading
+## Static Files Not Loading
 Ensure the `frontend/` directory structure is correct and the paths in `main.py` match your setup.
 
-# License
+## License
 
 This is a prototype developed for SIH (Smart India Hackathon) 2026 Problem Statement 26044.
+### Initial Contributors
+*Sarthak Pandey* (Github Username: SarthakPandey-83)
+*Shasvat*
+*Navya jain*
+*Naman Dewan*
+*Kumud Gupta*
+*Shivansh Patel*
