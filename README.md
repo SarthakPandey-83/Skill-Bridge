@@ -15,21 +15,21 @@ It will be recommended to use the demo inputs so that you can start up the progr
 
 # Features
 
-# -- Student Module
+#  Student Module
 - Complete profile creation with academic and skill information
 - Skill categorization and management
 - Skill gap analysis against industry requirements
 - Recommended skills and learning opportunities
 - Browse and discover internship, job, and event opportunities
 
-# -- Faculty Module
+#  Faculty Module
 - Professional profile with expertise and skills
 - Department information and subjects taught
 - Student skill insights and trends
 - Industry-required skills analysis
 - Curriculum development recommendations
 
-# -- Institute Module
+#  Institute Module
 - Aggregated analytics dashboard
 - Students by branch and batch distribution
 - Skill distribution and common skills analysis
@@ -37,7 +37,7 @@ It will be recommended to use the demo inputs so that you can start up the progr
 - Participation metrics (internships, jobs, events)
 - Visual charts and graphs
 
-# -- Industry Module
+#  Industry Module
 - Company/industry profile management
 - Post job, internship, event, and skill-program opportunities
 - Specify required skills and eligibility criteria
@@ -45,14 +45,14 @@ It will be recommended to use the demo inputs so that you can start up the progr
 - Skill demand vs supply analysis
 - High-demand low-supply skill identification
 
-# -- Skill Gap Engine
+#  Skill Gap Engine
 - Calculate current skill strength
 - Identify missing and weak skills
 - Industry demand analysis
 - Personalized skill recommendations
 - Modular algorithm design (extensible to ML/AI)
 
-# --> Tech Stack
+#  Tech Stack
 
 - **Frontend**: HTML5 + CSS3 + Vanilla JavaScript
 - **Backend**: Python + FastAPI
