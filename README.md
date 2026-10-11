@@ -245,5 +245,5 @@ This is a prototype developed for SIH (Smart India Hackathon) 2026 Problem State
 *Shasvat*
 *Navya jain*
 *Naman Dewan*
-*Kumud Gupta*
+*Kumud Gupta* (Github Username: kumudgupta22)
 *Shivansh Patel*
